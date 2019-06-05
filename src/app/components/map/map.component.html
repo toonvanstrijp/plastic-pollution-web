@@ -1,0 +1,33 @@
+<mgl-map
+        [style]="'mapbox://styles/toonvanstrijp/cj8h3fweu1vbc2roa0offuwx1'"
+        [zoom]="[1]"
+        [center]="[0, 0]">
+  <mgl-control mglNavigation></mgl-control>
+
+  <mgl-geojson-source
+          id="points"
+          [data]="data"
+  >
+  </mgl-geojson-source>
+  <mgl-layer
+          id="plastic-points"
+          source="points"
+          type="circle"
+          [paint]="{
+      'circle-radius': 3,
+      'circle-color': [
+        'step',
+        ['get', selectedProperty],
+        '#35a800',
+        100,
+        '#8bd101',
+        1000,
+        '#ffff00',
+        10000,
+        '#ff7f00',
+        100000,
+        '#ff0100'
+      ]
+}"
+  ></mgl-layer>
+</mgl-map>

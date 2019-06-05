@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MapComponent } from './components/map/map.component';
+import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {SidenavService} from './services/sidenav.service';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,11 @@ import { MapComponent } from './components/map/map.component';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

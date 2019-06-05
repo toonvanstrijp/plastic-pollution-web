@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SidenavService} from '../../services/sidenav.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  links = [];
 
+
+  constructor(public sidenav: SidenavService) {
+
+  }
 }

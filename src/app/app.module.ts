@@ -9,8 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MapComponent } from './components/map/map.component';
-import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatRadioModule, MatToolbarModule} from '@angular/material';
 import {SidenavService} from './services/sidenav.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import {SidenavService} from './services/sidenav.service';
     MatListModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    DragDropModule
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent]

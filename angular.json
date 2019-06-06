@@ -30,7 +30,10 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.js",
+              "./node_modules/@turf/turf/turf.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

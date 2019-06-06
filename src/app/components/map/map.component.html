@@ -1,8 +1,28 @@
-<mgl-map
-        #map
-        (load)="mapLoaded($event)"
-        [style]="'mapbox://styles/toonvanstrijp/cj8h3fweu1vbc2roa0offuwx1'"
-        [zoom]="[1]"
-        [center]="[0, 0]">
-  <mgl-control mglNavigation></mgl-control>
-</mgl-map>
+<div class="page">
+  <mgl-map
+          #map
+          (load)="mapLoaded($event)"
+          [style]="'mapbox://styles/toonvanstrijp/cj8h3fweu1vbc2roa0offuwx1'"
+          [zoom]="[1]"
+          [center]="[0, 0]">
+    <mgl-control mglNavigation></mgl-control>
+  </mgl-map>
+  <div class="map-controls">
+    <mat-card class="map-data-layers">
+      <mat-list>
+        <mat-list-item *ngFor="let layer of dataLayers">
+          <mat-radio-button (change)="selectLayer(layer.property)" [checked]="layer.property === selectedProperty" [disabled]="!isMapLoaded">
+            {{layer.name}}
+          </mat-radio-button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <mat-card cdkDropList [cdkDropListDisabled]="!isMapLoaded" class="map-layers" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let layer of mapLayers" cdkDrag>
+        <mat-checkbox (change)="changeVisibility($event, layer)" [checked]="layer.visible" [disabled]="!isMapLoaded">{{layer.name}}</mat-checkbox>
+        <mat-icon cdkDragHandle>reorder</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+</div>

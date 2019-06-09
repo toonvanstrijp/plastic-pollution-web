@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, NgZone, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { MapComponent as MapboxComponent } from 'ngx-mapbox-gl';
 import {SidenavService} from '../../services/sidenav.service';
@@ -79,7 +79,8 @@ export class MapComponent implements AfterViewInit {
   constructor(
       private http: HttpClient,
       private sidenav: SidenavService,
-      private dialog: MatDialog
+      private dialog: MatDialog,
+      private zone: NgZone
   ) {
     this.http.get('/assets/0.json').subscribe(res => {
       this.data = res as GeoJSON.FeatureCollection<GeoJSON.Geometry>;
@@ -248,13 +249,17 @@ export class MapComponent implements AfterViewInit {
         return turf.inside(f as turf.Coord, multiPoly);
       });
 
-      this.dialog.open(DialogComponent, {
-        // data,
-        panelClass: 'map-dialog',
-        width: '50vw',
-        height: '80vh'
-      }).beforeClosed().subscribe(() => {
-        this.mapDraw.deleteAll();
+      this.zone.run(() => {
+        this.dialog.open(DialogComponent, {
+          data,
+          panelClass: 'map-dialog',
+          height: '80vh',
+          width: '60vw',
+        }).beforeClosed().subscribe(() => {
+          setTimeout(() => {
+            this.mapDraw.deleteAll();
+          });
+        });
       });
     }
   }

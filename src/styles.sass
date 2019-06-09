@@ -9,8 +9,9 @@ html, body, app-root, mgl-map, .page
   width: 100%
   margin: 0
 
-mgl-map
+.page
   margin-top: 64px
+  height: calc(100% - 64px)
 
 .mat-toolbar
   position: absolute
@@ -67,3 +68,6 @@ mat-sidenav
 
 .map-dialog .mat-dialog-container
   padding: 0
+
+.mat-tab-group, .mat-tab-body-wrapper
+  height: 100%

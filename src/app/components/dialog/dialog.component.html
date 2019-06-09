@@ -1,4 +1,8 @@
 <mat-tab-group>
   <mat-tab label="graph"> Graph </mat-tab>
-  <mat-tab label="data"> Data </mat-tab>
+  <mat-tab label="data">
+    <pre style="overflow: auto">
+      <code [innerText]="json"></code>
+    </pre>
+  </mat-tab>
 </mat-tab-group>

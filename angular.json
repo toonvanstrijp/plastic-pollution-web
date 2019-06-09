@@ -32,7 +32,8 @@
             ],
             "scripts": [
               "./node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.js",
-              "./node_modules/@turf/turf/turf.min.js"
+              "./node_modules/@turf/turf/turf.min.js",
+              "./node_modules/chart.js/dist/Chart.min.js"
             ],
             "es5BrowserSupport": true
           },

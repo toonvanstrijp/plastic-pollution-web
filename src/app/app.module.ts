@@ -9,15 +9,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MapComponent } from './components/map/map.component';
-import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatRadioModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatIconModule,
+  MatRadioModule, MatTabsModule,
+  MatToolbarModule
+} from '@angular/material';
 import {SidenavService} from './services/sidenav.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {DialogComponent} from './components/dialog/dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +45,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatCardModule,
     MatCheckboxModule,
     MatRadioModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule,
+    MatTabsModule,
   ],
+  entryComponents: [DialogComponent],
   providers: [SidenavService],
   bootstrap: [AppComponent]
 })

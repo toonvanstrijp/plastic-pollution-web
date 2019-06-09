@@ -6,14 +6,14 @@ import {AnySourceData, Map} from 'mapbox-gl';
 import {GeoJSON} from 'geojson';
 import {CdkDragDrop} from '@angular/cdk/typings/drag-drop';
 import {moveItemInArray} from '@angular/cdk/drag-drop';
-import {MatCheckboxChange} from '@angular/material';
+import {MatCheckboxChange, MatDialog} from '@angular/material';
 import * as turf from '@turf/turf';
 // @ts-ignore
 import MapboxDraw = require('@mapbox/mapbox-gl-draw');
+import {DialogComponent} from '../dialog/dialog.component';
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.sass']
+  templateUrl: './map.component.html'
 })
 export class MapComponent implements AfterViewInit {
 
@@ -76,7 +76,11 @@ export class MapComponent implements AfterViewInit {
 
   public selectedProperty = 'CD4____KM_';
 
-  constructor(private http: HttpClient, private sidenav: SidenavService) {
+  constructor(
+      private http: HttpClient,
+      private sidenav: SidenavService,
+      private dialog: MatDialog
+  ) {
     this.http.get('/assets/0.json').subscribe(res => {
       this.data = res as GeoJSON.FeatureCollection<GeoJSON.Geometry>;
     });
@@ -244,9 +248,14 @@ export class MapComponent implements AfterViewInit {
         return turf.inside(f as turf.Coord, multiPoly);
       });
 
-      console.log('sent to dialog');
-
-      this.mapDraw.deleteAll();
+      this.dialog.open(DialogComponent, {
+        // data,
+        panelClass: 'map-dialog',
+        width: '50vw',
+        height: '80vh'
+      }).beforeClosed().subscribe(() => {
+        this.mapDraw.deleteAll();
+      });
     }
   }
 

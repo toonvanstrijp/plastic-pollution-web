@@ -21,11 +21,13 @@ import {
 import {SidenavService} from './services/sidenav.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DialogComponent} from './components/dialog/dialog.component';
+import {HomeComponent} from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     MapComponent,
     DialogComponent
   ],

@@ -8,7 +8,31 @@ import {SidenavService} from '../../services/sidenav.service';
 })
 export class AppComponent {
 
-  links = [];
+  links = [
+    {
+      label: 'Home',
+      link: '/home',
+    },
+    {
+      label: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduction',
+      link: '/home',
+      fragment: 'introduction'
+    },
+    {
+      label: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Global production of plastic',
+      link: '/home',
+      fragment: 'global-production'
+    },
+    {
+      label: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Where does it come from?',
+      link: '/home',
+      fragment: 'where-does-it-come-from'
+    },
+    {
+      label: 'Map',
+      link: '/map'
+    }
+  ];
 
 
   constructor(public sidenav: SidenavService) {

@@ -1,5 +1,7 @@
 <mat-tab-group>
-  <mat-tab label="graph"> Graph </mat-tab>
+  <mat-tab label="graph">
+    <canvas id="plasticChart" style="height: calc(100% - 4px);width: 100%;"></canvas>
+  </mat-tab>
   <mat-tab label="data">
     <pre style="overflow: auto">
       <code [innerText]="json"></code>

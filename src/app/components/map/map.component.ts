@@ -266,9 +266,13 @@ export class MapComponent implements AfterViewInit {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.mapLayers, event.previousIndex, event.currentIndex);
-    // this.mapLayers;
     for (let i = 1; i < this.mapLayers.length; i++) {
-      this.map.moveLayer(this.mapLayers[i].id, this.mapLayers[i - 1].id);
+      const currentLayer = this.mapLayers[i];
+      const previousLayer = this.mapLayers[i - 1];
+
+      [currentLayer.id, ...currentLayer.layers].forEach(l => {
+        this.map.moveLayer(l, previousLayer.id);
+      });
     }
   }
 

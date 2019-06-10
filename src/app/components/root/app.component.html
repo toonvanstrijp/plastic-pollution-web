@@ -1,8 +1,7 @@
 <mat-sidenav-container class="main">
   <mat-sidenav #drawer (openedChange)="sidenav.sidenavChanged()" mode="side" opened>
-    <h1>test</h1>
     <mat-nav-list>
-      <a mat-list-item href="..." *ngFor="let link of links"> {{ link }} </a>
+      <a *ngFor="let item of links" mat-list-item [routerLink]="item.link" [fragment]="item.fragment"><span [innerHTML]="item.label"></span></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

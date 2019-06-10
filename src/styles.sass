@@ -12,6 +12,16 @@ html, body, app-root, mgl-map, .page
 .page
   margin-top: 64px
   height: calc(100% - 64px)
+  &.text
+    padding: 20px
+    box-sizing: border-box
+    .mat-card
+      padding: 40px 80px 40px 80px
+      &:not(:first-child)
+        margin-top: 80px
+        margin-bottom: 80px
+    .mat-card-content
+      font-size: 16px
 
 .mat-toolbar
   position: absolute

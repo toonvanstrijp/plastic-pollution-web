@@ -29,6 +29,11 @@ export class AppComponent {
       fragment: 'where-does-it-come-from'
     },
     {
+      label: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What can we do against it?',
+      link: '/home',
+      fragment: 'what-can-we-do'
+    },
+    {
       label: 'Map',
       link: '/map'
     }
